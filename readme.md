@@ -1,6 +1,6 @@
 #  Projet Maison des ligues
 
-Lien de la page : [Lien page](https://babskiflorian.github.io/Projet-Maison-des-ligues/)
+Lien de la page : [Maison des ligues](https://babskiflorian.github.io/Projet-Maison-des-ligues/)
 
 # Projet "Maison des ligues"
 
