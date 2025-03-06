@@ -2,6 +2,8 @@
 
 Lien de la page : [Maison des ligues](https://babskiflorian.github.io/Projet-Maison-des-ligues/)
 
+## Charte graphique :
+![Palette de couleur](assets/readme/charte%20graphique%20M2L.png)
 # Projet "Maison des ligues"
 
 Le projet "Maison des ligues" est une application web dynamique, conçue pour faciliter la gestion et la communication au sein d'une organisation. Développée en HTML, CSS, PHP et JavaScript, cette plateforme offre une expérience utilisateur intuitive et sécurisée, avec des fonctionnalités distinctes pour les utilisateurs standards (collaborateurs) et les administrateurs.
