@@ -1,6 +1,6 @@
 #  Projet Maison des ligues
 
-Lien de la page : [Maison des ligues](https://babskiflorian.github.io/Projet-Maison-des-ligues/)
+Lien de la page : [Maison des ligues](https://babskiflorian.github.io/Projet-Maison-des-ligues/index.html)
 
 ## Charte graphique :
 ![Palette de couleur](assets/readme/M2L-charte-graphique.png)
