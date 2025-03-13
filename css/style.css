@@ -1,0 +1,24 @@
+html, body {
+    height: 100%; /* Assure que le body prend toute la hauteur de la fenêtre */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  main {
+    flex: 1; /* Le contenu principal prend tout l'espace disponible */
+  }
+  
+  footer {
+    max-height: 4rem;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #969696;
+    font-size: 14px;
+    background-color: #f2f2f2;
+  }
+  h1, h2{
+    font-size: 36px;
+    padding-left: 1rem;
+  }

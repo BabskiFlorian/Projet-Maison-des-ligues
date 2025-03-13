@@ -1,0 +1,48 @@
+main {
+        align-items: center;
+        font-family: 'Quicksand', sans-serif;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0; /* Couleur de fond */
+}
+main h1 {
+    font-size: 16px;
+}
+.container {
+    width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+a {
+ text-decoration: none;
+}
+
+.button {
+    width: 15rem; /* Exemple de largeur fixe */
+    padding: 10px;
+    background-color: #14213D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block; /* Pour que width fonctionne bien */
+    text-align: center; /* Pour centrer le texte */
+}
+
+.button:hover {
+    background-color: #24407d;
+}   
