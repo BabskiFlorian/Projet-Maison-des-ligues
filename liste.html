@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/acceuil.css">
+    <link rel="stylesheet" href="./css/liste.css">
+
 
     <title>Maison des ligues</title>
 </head>
@@ -23,7 +24,28 @@
 </div>
 </header>
 <main>
-    <div class="container"></div>
+    <div class="container">
+    <div class="search-filters">
+        <input type="text" placeholder="Rechercher...">
+        <label for="search-by">Rechercher par:</label>
+        <select id="search-by">
+            <option value="nom">Nom</option>
+            <option value="localisation">Localisation</option>
+            <option value="categorie">Catégorie</option>
+        </select>
+        <label for="category-filter">Branche:</label>
+        <select id="category-filter">
+            <option value="technique">Technique</option>
+            <option value="marketing">Marketing</option>
+            <option value="vente">Vente</option>
+        </select>
+    </div>
+    <div class="grid-container"></div>
+</div>
+
+
+    <script src="script/script.js"></script>
+    </div>
 </main>
 <footer>
     <p>Maison des ligues</p>
