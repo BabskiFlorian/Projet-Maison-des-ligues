@@ -64,3 +64,14 @@ a {
        background-color: #24407d;
    }   
 
+
+
+.container-photo {
+    transform: scale(0.5); /* Agrandit l'image de 10 % */    
+    width: 700px;
+    height: 700px;
+    border-radius: 1rem;
+    border: solid 2px #fca311;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+
+}
