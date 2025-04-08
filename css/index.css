@@ -34,7 +34,7 @@ a {
 .button {
     width: 15rem; /* Exemple de largeur fixe */
     padding: 10px;
-    background-color: #14213D;
+    background-color: #FCA311;
     color: white;
     border: none;
     border-radius: 4px;
@@ -44,5 +44,5 @@ a {
 }
 
 .button:hover {
-    background-color: #24407d;
+    background-color: #9a640d;
 }   
