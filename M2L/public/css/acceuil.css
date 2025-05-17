@@ -28,17 +28,17 @@ main h2{
   }
   
   .left {
-    width: 50%; /* Occuper la moitié gauche */
-    padding-right: 20px; /* Ajouter un peu d'espace à droite */
+    flex-grow: 1; /* Prend l'espace disponible */
+    padding-right: 20px;
   }
   
   .right {
-    margin-left: 21.5rem;
-    width: 50%;
-    display: flex; /* Utiliser Flexbox */
-    justify-content: flex-end; /* Aligner à droite */
-    align-items: center; /* Centrer verticalement */
-}
+    flex-grow: 1; /* Prend l'espace disponible */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto; /* Pousse l'élément vers la droite */
+  } 
   
   /* Vos autres styles restent inchangés */
 

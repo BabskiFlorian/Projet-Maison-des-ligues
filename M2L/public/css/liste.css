@@ -27,26 +27,24 @@ main {
 main h1 {
     font-size: 26px;
     font-weight: 700;
-    margin-bottom: 20px; /* Ajoute de l'espace sous le titre */
+    margin-bottom: 20px;
 }
 
 
 .container {
-    position: relative; /* Container devient le point de référence */
+    position: relative;
     width: 80%;
+    margin-top: 10rem;
     padding: 40px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* max-height: 50rem; <-- SUPPRIMER OU COMMENTER CETTE LIGNE */
-    /* margin-bottom: 5rem;
-    margin-top: 5rem; */ /* Enlevez ces marges */
 }
 .search-filters {
     display: flex;
-    gap: 10px; /* Ajoute un espace entre les éléments de recherche */
+    gap: 10px;
     margin-bottom: 20px;
-    align-items: center; /* Aligne verticalement les éléments de recherche */
+    align-items: center;
 }
 
 .search-filters input,
