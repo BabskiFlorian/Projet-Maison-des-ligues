@@ -1,0 +1,36 @@
+/* public/css/style.css */
+main {
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 78vh;
+    margin: 0;
+    background-color: #21262d;
+}
+
+
+
+/* Styles pour le bouton "Créer un utilisateur" */
+.create-user-button {
+    background-color: #FCA311; /* Couleur bleue (ajustez à votre thème si nécessaire) */
+    color: white; /* Texte blanc */
+    padding: 10px 15px; /* Espacement interne */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none; /* Enlève le soulignement du lien */
+    font-size: 1em; /* Taille de police */
+    cursor: pointer; /* Curseur au survol */
+    transition: background-color 0.3s ease; /* Transition douce pour l'effet de survol */
+    margin-bottom: 2rem;
+}
+
+.create-user-button:hover {
+    background-color: #14213D; /* Couleur plus foncée au survol */
+}
+
+.form-container {
+    background-color: #f0f0f0;
+    padding: 2.5rem;
+    border-radius: 12px;
+}

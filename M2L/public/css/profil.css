@@ -1,7 +1,6 @@
 body {
     font-family: 'Quicksand', sans-serif; /* Assurez-vous que cette police est importée */
     margin: 0;
-    background-color: #f0f0f0; /* Couleur de fond */
 }
 
 main {
@@ -9,6 +8,8 @@ main {
     justify-content: center;
     align-items: center; /* Centre verticalement le contenu dans main */
     padding: 40px 0; /* Ajoute un peu de marge en haut et en bas de main */
+    background-color: #21262d;
+
 }
 
 main h1 {

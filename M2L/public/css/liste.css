@@ -1,84 +1,318 @@
-
 html, body {
     height: 100%;
     margin: 0;
-    display: flex;
     flex-direction: column;
     font-family: 'Quicksand', sans-serif;
 }
 
 main {
-    flex: 1; /* Prend tout l'espace vertical disponible */
-    align-items: center;
-    font-family: 'Quicksand', sans-serif;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    margin: 0;
-    background-color: #f0f0f0;
-    padding: 40px 0;
-    overflow-y: auto; /* Ajoute un défilement si le contenu dépasse */
+    align-items: center;
+    background-color: #21262d;
+    background: 
+      linear-gradient(rgba(0, 106, 255, 0.2), rgba(255, 102, 0, 0.2)),
+      url('https://i.postimg.cc/HYKWZ7Lk/abstract-background-concept-23-2148557836.jpg') no-repeat center;
+    background-size: cover;
+    transition: 0.1s ease-out;
+    padding-bottom: 5rem;
+  }
+
+  .button { /* Style générique pour tous les boutons */
+    display: inline-block;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.edit-user-button {
+    background-color: #FCA311; /* Jaune/orange pour modifier */
+    color: white;
+    border: none;
+    margin-left: 0.3rem;
+}
+.edit-user-button:hover {
+    background-color: #e0920a; /* Plus foncé au survol */
 }
 
-/* ... reste du CSS ... */
-
-
-
-main h1 {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 20px;
+.delete-user-button {
+    background-color: #dc3545; /* Rouge pour supprimer */
+    color: white;
+    border: none;
+    margin-left: 5px; /* Espacement entre les boutons */
 }
 
+.delete-user-button:hover {
+    background-color: #c82333; /* Plus foncé au survol */
+}
 
 .container {
     position: relative;
-    width: 80%;
-    margin-top: 10rem;
+    width: 90%; /* Augmenté pour plus d'espace sur les grands écrans */
+    max-width: 1200px; /* Largeur maximale pour éviter qu'il soit trop large */
+    margin-top: 5rem; /* Garde votre marge existante */
     padding: 40px;
-    background-color: #fff;
-    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.685);
+    border-radius: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex; /* Utilisation de flexbox pour organiser les filtres et la grille */
+    flex-direction: column; /* Les filtres au-dessus de la grille */
+    align-items: center; /* Centre le contenu dans le container */
 }
+
+
+
 .search-filters {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur de petits écrans */
+    gap: 15px; /* Augmenté légèrement pour un meilleur espacement */
+    margin-bottom: 25px; /* Plus d'espace sous les filtres */
+    align-items: center;
+    justify-content: center; /* Centre les filtres horizontalement */
+    width: 100%; /* S'étend sur toute la largeur du container */
+    padding: 15px; /* Un peu de padding pour les filtres */
+    background-color: rgba(62, 62, 62, 0.61); /* Légèrement différent pour le fond des filtres */
+    border-radius: 25px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.search-filters input[type="text"],
+.search-filters select {
+    padding: 10px 12px; /* Augmenté pour plus de confort */
+    border: 3px solid rgba(255, 136, 0, 0.50);
+    border-radius: 5px; /* Coins légèrement plus arrondis */
+    font-size: 1em;
+    flex-grow: 1; /* Permet aux champs de s'étirer */
+    max-width: 250px; /* Limite la largeur des champs individuels */
+}
+
+.search-filters label {
+    font-weight: bold;
+    color: white;
+    white-space: nowrap; /* Empêche le label de passer à la ligne */
+}
+
+
+.grid-container {
+    display: grid; /* Active le mode grille */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Crée des colonnes responsives, chaque carte fait au moins 280px de large */
+    gap: 50px; /* Espace entre les cartes */
+    width: 100%; /* Le conteneur de grille prend toute la largeur disponible */
+    justify-content: center; /* Centrer les cartes dans le conteneur si elles ne remplissent pas toute la largeur */
+}
+
+
+
+/* Changement important : La classe de vos cartes est .collaborator-card, pas .card */
+.collaborator-card {    
+    background-color: #f9f9f9; /* Couleur de fond de la carte */
+    border: 1px solid #ddd; /* Bordure légère */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 15px; /* Espacement intérieur de la carte */
+    text-align: center; /* Centrer le texte dans la carte */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ombre portée */
+    display: flex; /* Utiliser flexbox pour organiser le contenu à l'intérieur de la carte */
+    flex-direction: column; /* Les éléments s'empilent verticalement */
+    align-items: center; /* Centrer les éléments horizontalement dans la carte */
+    transition: transform 0.2s ease-in-out; /* Effet de transition au survol */
+}
+
+.collaborator-card:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+}
+
+
+/* L'élément qui affiche la photo dans votre Blade est une <img> avec la classe .collaborator-photo, pas une <div> avec la classe .photo */
+.collaborator-card .collaborator-photo {
+    width: 100px; /* Largeur de la photo */
+    height: 100px; /* Hauteur de la photo */
+    border-radius: 50%; /* Rendre la photo circulaire */
+    object-fit: cover; /* Assure que la photo remplit le cadre sans être déformée */
+    margin-bottom: 10px; /* Espacement sous la photo */
+    border: 2px solid #eee; /* Petite bordure autour de la photo */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Petite ombre pour la photo */
+}
+
+.collaborator-card h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1.2em;
+    word-wrap: break-word; /* Permet aux mots longs de se casser pour ne pas déborder */
+    line-height: 1.3;
+}
+
+.collaborator-card p {
+    margin: 2px 0;
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.4;
+    word-wrap: break-word; /* Permet aux mots longs de se casser */
+}
+
+#noCollaboratorsFound {
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 1.1em;
+    color: #888;
+}
+
+/* NOUVELLES RÈGLES */
+
+/* Conteneur pour le titre et le bouton "Créer un utilisateur" */
+.list-controls {
+    display: flex; /* Active Flexbox pour aligner les enfants (titre et actions) */
+    justify-content: space-between; /* Place le premier enfant à gauche et le dernier à droite */
+    align-items: center; /* Centre les éléments verticalement par rapport à leur hauteur */
+    margin-bottom: 20px; /* Ajoute un espace en dessous de ce bloc */
+    width: 90%; /* Prend la même largeur que votre .container pour un bon alignement */
+    max-width: 1200px; /* Aligne avec la largeur maximale de votre .container */
+    /* Assurez-vous que le padding du main ne perturbe pas cet alignement, ou ajoutez-le ici si nécessaire */
+    padding: 0 20px; /* Ajoutez un padding horizontal si votre contenu n'est pas déjà bord à bord. Ajustez si vous avez un padding global sur main. */
+}
+
+/* Styles pour le titre 'Liste' à l'intérieur de .list-controls */
+.list-controls .list-title h1 {
+    margin: 0; /* Supprime la marge par défaut du h1 pour un alignement parfait avec le bouton */
+    font-size: 2em; /* Gardez la taille que vous voulez pour le titre */
+    color: #333;
+}
+
+
+
+/* Styles pour le bouton "Créer un utilisateur" */
+.create-user-button {
+    background-color: #FCA311; /* Couleur bleue (ajustez à votre thème si nécessaire) */
+    color: white; /* Texte blanc */
+    padding: 10px 15px; /* Espacement interne */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none; /* Enlève le soulignement du lien */
+    font-size: 1em; /* Taille de police */
+    cursor: pointer; /* Curseur au survol */
+    transition: background-color 0.3s ease; /* Transition douce pour l'effet de survol */
+    margin-bottom: 2rem;
+}
+
+.create-user-button:hover {
+    background-color: #14213D; /* Couleur plus foncée au survol */
+}
+
+
+/* Media Queries pour la responsivité */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Prend plus de largeur sur les petits écrans */
+        padding: 20px;
+        margin-top: 5rem; /* Réduire la marge en haut */
+    }
+
+    .search-filters {
+        flex-direction: column; /* Empile les filtres verticalement sur petits écrans */
+        align-items: stretch; /* Les étire en largeur */
+    }
+
+    .search-filters input[type="text"],
+    .search-filters select {
+        max-width: none; /* Enlève la limite de largeur */
+        width: 100%; /* Prennent toute la largeur disponible */
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur les très petits écrans */
+    }
+}
+
+
+/* Styles pour le fond de la modale */
+/* Styles pour le fond de la modale */
+.modal {
+    display: none; /* <-- CHANGEZ CELA EN "none" */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    /* Les lignes suivantes sont pour le centrage quand la modale est affichée par JS */
+    justify-content: center;
     align-items: center;
 }
 
-.search-filters input,
-.search-filters select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Crée des colonnes responsives */
-    gap: 20px;
-}
-
-.card {
-    margin-top: 2rem;
-    border: 1px solid #ddd;
-    padding: 15px;
+/* Styles pour le contenu de la modale */
+.modal-content {
+    background-color: #fefefe; /* Fond blanc */
+    margin: auto; /* Pour le centrage si flexbox n'était pas utilisé */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Largeur par défaut */
+    max-width: 500px; /* Largeur maximale */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Pour positionner le bouton de fermeture */
     text-align: center;
 }
 
-.card .photo {
-    width: 100px;
-    height: 100px;
-    background-color: #333; /* Ou une image par défaut */
-    margin: 10px auto;
-    border-radius: 50%;
+/* Bouton de fermeture */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.card h3 {
-    margin-bottom: 10px;
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
 }
 
-.card p {
-    margin: 5px 0;
+/* Titre et message de la modale */
+.modal-content h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
 }
+
+.modal-content p {
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Conteneur des actions (boutons) */
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espace entre les boutons */
+    margin-top: 20px;
+}
+
+/* Styles pour le bouton Annuler */
+.cancel-button {
+    background-color: #6c757d; /* Gris */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #5a6268;
+}
+
+/* Vous avez déjà les styles pour .delete-user-button via .button */
+/* Pour éviter la duplication, assurez-vous que .button et .delete-user-button sont bien définis. */
+/* Le bouton Supprimer dans la modale utilisera ces styles. */

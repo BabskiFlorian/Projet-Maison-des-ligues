@@ -1,74 +1,98 @@
-
-
 html, body {
-    height: 100%; /* Assure que le body prend toute la hauteur de la fenêtre */
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Quicksand', sans-serif;
-  }
-  
-  main {
-    flex: 1; /* Le contenu principal prend tout l'espace disponible */
-  }
-  
+  height: 100%;
+  margin: 0;
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: rgb(30, 30, 30);
+  overflow-x: hidden;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+
+
+header {
+  background: rgb(30, 30, 30);
+  border-bottom: 1px solid rgba(252, 163, 17, 0.2);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-size: large;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #FCA311, #FFB347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-l, .header-d {
+  color: #e0e0e0;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+}
+
+.header-l:hover, .header-d:hover {
+  background: rgba(252, 163, 17, 0.1);
+  color: #FCA311;
+  transform: translateY(-2px);
+}
+
+.profile-photo, .container-photo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FCA311;
+  transition: all 0.3s ease;
+}
+
+.profile-photo:hover, .container-photo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(252, 163, 17, 0.4);
+}
   footer {
     max-height: 4rem;
     text-align: center;
     padding: 20px;
-    border-top: 1px solid #969696;
+    border-top: 1px solid rgba(252, 163, 17, 0.2);
     font-size: 14px;
-    background-color: #f2f2f2;
-  }
-  h1, h2{
-    font-size: 36px;
-    padding-left: 1rem;
+    background: rgb(30, 30, 30);
+    color: white;
   }
 
-  header {
-    background-color: #fcfcfc; /* Couleur de fond */
-    border-bottom: 1px solid #ccc; /* Bordure en bas */
-}
-
-.header-container {
-    display: flex;
-    align-items: center; /* Alignement vertical */  
-}
-
-.header-l {
-    margin-left: 45rem;
-    text-decoration: none;
-    color: #333;
-    margin: 0 10px; /* Espace entre les liens */
-}
-.header-d {
-    text-decoration: none;
-    color: #333;
-    margin: 0 10px; /* Espace entre les liens */
-}
-.profile-container {
-  display: flex;
-  align-items: center;
-  position: absolute; /* ou fixed */
-  top: 1.5rem; /* Position en haut de la page */
-  right: 1rem; /* Position à droite de la page */
-}
-.profile-photo {
-  width: 40px; /* Taille de la photo de profil */
-  height: 40px;
-  border-radius: 50%; /* Pour la rendre ronde */
-  margin-right: 10px;
-}
-header a.header-l:hover,
-header a.header-d:hover {
-    font-weight: bold;
+  footer h1 {
     color: #FCA311;
-    cursor: pointer;
-}
-
-header a.header-l,
-header a.header-d {
-    text-decoration: none; /* Pas de soulignement par défaut */
-    transition: color 0.3s ease-in-out; /* Animation douce de la couleur */
+    font-size: large;
+  }
+.error {
+  color: darkred;
+  background-color: #ffe0e0;
+  border: 1px solid #ffb3b3;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: block;
 }
 
