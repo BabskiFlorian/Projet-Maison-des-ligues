@@ -55,11 +55,14 @@ Route::middleware(['auth'])->group(function () {
         // Utilise la méthode PUT pour les mises à jour RESTful.
         Route::put('/collaborateurs/{collaborateur}', [CollaborateurController::class, 'update'])->name('collaborateur.update');
 
+        // Route pour la suppression
         Route::delete('/collaborateur/{collaborateur}', [CollaborateurController::class, 'destroy'])
-     ->name('collaborateur.destroy')
-     ->middleware('auth', 'admin'); // Ajoutez un middleware pour s'assurer que seul un admin peut supprimer
-        // Vous pouvez aussi envisager une route pour la suppression si nécessaire (méthode DELETE)
-        // Route::delete('/collaborateurs/{collaborateur}', [CollaborateurController::class, 'destroy'])->name('collaborateur.destroy');
+            ->name('collaborateur.destroy')
+            ->middleware('auth', 'admin'); // Ce middleware 'auth', 'admin' est déjà appliqué par le groupe.
+
+        // --- AJOUTEZ CETTE LIGNE ICI POUR LA ROUTE D'IMPORTATION CSV ---
+        Route::post('/collaborateurs/import-csv', [CollaborateurController::class, 'importCsv'])->name('collaborateurs.import_csv');
+        // -----------------------------------------------------------
     });
 
 });

@@ -1,0 +1,172 @@
+/* Styles généraux pour l'ensemble de la page */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #f0f0f0; /* Couleur de texte générale pour contraster avec le fond sombre */
+    text-align: center;
+}
+
+/* Section principale avec image de fond et effet de parallax (à gérer via JS pour la souris) */
+/* Main content avec image de fond + effet paralax souris*/
+main {
+    display: flex;
+    justify-content: center; /* ALIGNE HORIZONTALEMENT */
+    align-items: center;   /* ALIGNE VERTICALEMENT */
+    flex-grow: 1; /* Permet à main de prendre l'espace disponible */
+    background-color: #21262d;
+    height: 100%; /* S'assure que main prend toute la hauteur disponible */
+    background:
+        linear-gradient(rgba(0, 106, 255, 0.3), rgba(255, 102, 0, 0.3)),
+        url('https://i.postimg.cc/HYKWZ7Lk/abstract-background-concept-23-2148557836.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    transition: background-position 0.1s ease-out;
+}
+
+/* Conteneur principal du message d'erreur */
+.container {
+    width: 90%; /* Prend 90% de la largeur disponible */
+    max-width: 800px; /* Limite la largeur maximale */
+    padding: 3rem;
+    border-radius: 25px;
+    border: 3px solid rgba(255, 255, 255, 0.5); /* Bordure semi-transparente */
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column; /* Pour empiler les éléments verticalement */
+    align-items: center;
+    gap: 2rem; /* Espacement entre les éléments */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    background: rgba(136, 136, 136, 0.3); /* Fond semi-transparent */
+    backdrop-filter: blur(15px) saturate(1.2); /* Effet de flou derrière le conteneur */
+    -webkit-backdrop-filter: blur(15px) saturate(1.2);
+}
+
+.container:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(194, 194, 194, 0.3);
+}
+
+/* Titre principal 404 */
+.container h1 {
+    font-size: 6rem; /* Très grande taille pour le "404" */
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #fb923c, #e53e3e); /* Dégradé orange-rouge */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    text-shadow: none;
+}
+
+/* Message d'erreur */
+.container p {
+    font-size: 1.6rem;
+    color: #cbd5e0; /* Couleur de texte claire */
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* Style du bouton "Retour à la page d'accueil" */
+.boutton {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 8px 25px rgba(251, 146, 60, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.boutton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.boutton:hover::before {
+    left: 100%;
+}
+
+.boutton:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow:
+        0 15px 35px rgba(251, 146, 60, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #dc2626 100%);
+}
+
+/* Effet de particules flottantes avec teinte verte (sur le conteneur) */
+
+
+/* Animations */
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-5px, 10px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Animation d'apparition du conteneur */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: slideUpFade 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    main {
+        background-attachment: scroll; /* Le parallax fixe peut être désactivé sur mobile */
+    }
+
+    .container h1 {
+        font-size: 4rem;
+    }
+
+    .container p {
+        font-size: 1.2rem;
+    }
+
+    .button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}

@@ -96,3 +96,38 @@ header h1 {
   display: block;
 }
 
+/* Alerts */
+.alert {
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  border-left: 4px solid;
+}
+
+.alert-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-left-color: #10b981;
+  color: #10b981;
+}
+
+.alert-danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-left-color: #ef4444;
+  color: #ef4444;
+}
+
+.alert ul {
+  list-style: none;
+}
+
+.alert li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.alert li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}

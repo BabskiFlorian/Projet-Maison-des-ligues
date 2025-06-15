@@ -35,18 +35,37 @@
 </header>
 <main>
     <div class="container">
-        @auth
-            @if(Auth::user()->isAdmin())
-                <a href="{{ route('collaborateur.create') }}" class="button create-user-button">Créer un utilisateur</a>
-            @endif
-        @endauth
+        {{-- Conteneur pour les boutons d'action (Créer et Importer) --}}
+        <div class="action-buttons-container" style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center; flex-wrap: wrap;">
+            @auth
+                @if(Auth::user()->isAdmin())
+                    {{-- Le bouton "Créer un utilisateur" original --}}
+                    <a href="{{ route('collaborateur.create') }}" class="button create-user-button">Créer un utilisateur</a>
+
+                    {{-- Formulaire d'importation CSV - C'est ICI que l'importation se passe --}}
+                    <form action="{{ route('collaborateurs.import_csv') }}" method="POST" enctype="multipart/form-data" style="display: flex; gap: 0.5rem; align-items: center;">
+                        @csrf
+                        <label for="csv_file" class="button create-user-button">
+                            Sélectionner un fichier CSV
+                            <input type="file" name="csv_file" id="csv_file" accept=".csv" style="display: none;" onchange="this.form.submit();">
+                        </label>
+                    </form>
+                @endif
+            @endauth
+        </div> {{-- Fin du conteneur des boutons d'action --}}
 
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {!! session('error') !!}
+            </div>
+        @endif
 
+        {{-- Reste de votre contenu (search-filters, grid-container, etc.) --}}
         <div class="search-filters">
             <input type="text" id="searchInput" placeholder="Rechercher...">
             <label for="search-by">Rechercher par:</label>
@@ -67,7 +86,6 @@
             </select>
         </div>
 
-        {{-- C'EST LA LIGNE MODIFIÉE : Ajoutez la classe 'grid-container' ici --}}
         <div class="grid-container"> 
             @forelse($collaborateurs as $collaborateur)
                 <div class="collaborator-card"
@@ -88,23 +106,22 @@
                     <p>Ville: {{ $collaborateur->ville ?? 'Non spécifié' }}</p>
                     <p>Pays: {{ $collaborateur->pays ?? 'Non spécifié' }}</p>
 
-{{-- À l'intérieur de la boucle @forelse et du @if(Auth::user()->isAdmin()) --}}
-@auth
-    @if(Auth::user()->isAdmin())
-        <a href="{{ route('collaborateur.edit', $collaborateur->id_collaborateur) }}" class="button edit-user-button">Modifier</a>
-        <form id="delete-form-{{ $collaborateur->id_collaborateur }}"
-            action="{{ route('collaborateur.destroy', $collaborateur->id_collaborateur) }}"
-            method="POST"
-            style="display:inline-block;"
-            onsubmit="return handleDeletion(event, '{{ $collaborateur->prenom }} {{ $collaborateur->nom }}')"> {{-- C'est cette ligne qui est cruciale --}}
-          @csrf
-          @method('DELETE')
-          <button type="submit" class="button delete-user-button">
-              Supprimer
-          </button>
-      </form>
-    @endif
-@endauth
+                    @auth
+                        @if(Auth::user()->isAdmin())
+                            <a href="{{ route('collaborateur.edit', $collaborateur->id_collaborateur) }}" class="button edit-user-button">Modifier</a>
+                            <form id="delete-form-{{ $collaborateur->id_collaborateur }}"
+                                action="{{ route('collaborateur.destroy', $collaborateur->id_collaborateur) }}"
+                                method="POST"
+                                style="display:inline-block;"
+                                onsubmit="return handleDeletion(event, '{{ $collaborateur->prenom }} {{ $collaborateur->nom }}')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="button delete-user-button">
+                                    Supprimer
+                                </button>
+                            </form>
+                        @endif
+                    @endauth
                 </div>
             @empty
                 <p id="noCollaboratorsMessage" style="text-align: center; width: 100%;">Aucun collaborateur trouvé.</p>

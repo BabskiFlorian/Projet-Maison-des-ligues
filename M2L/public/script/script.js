@@ -217,3 +217,20 @@ function handleDeletion(event, userName) {
     openConfirmModal(message, form); // Ouvrir la modale personnalisée
     return false; // Empêche la soumission normale du formulaire
 }
+
+    // Ce script met à jour le nom du fichier affiché et soumet le formulaire
+    document.addEventListener('DOMContentLoaded', function() {
+        var csvFileInput = document.getElementById('csv_file');
+        var fileNameSpan = document.getElementById('file-name');
+    
+        // Vérifiez que les éléments existent avant d'essayer de les manipuler
+        if (csvFileInput && fileNameSpan) {
+            csvFileInput.onchange = function() {
+                if (this.files.length > 0) {
+                    fileNameSpan.textContent = this.files[0].name;
+                    this.form.submit(); // Soumet le formulaire automatiquement
+                
+                }
+            };
+        }
+    });

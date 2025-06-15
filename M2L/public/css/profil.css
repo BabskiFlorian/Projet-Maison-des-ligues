@@ -1,84 +1,256 @@
-body {
-    font-family: 'Quicksand', sans-serif; /* Assurez-vous que cette police est importée */
-    margin: 0;
-}
-
+/* Main Content */
 main {
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centre verticalement le contenu dans main */
-    padding: 40px 0; /* Ajoute un peu de marge en haut et en bas de main */
-    background-color: #21262d;
-
-}
-
-main h1 {
-    font-size: 26px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.container {
-    position: relative;
-    width: 80%;
-    padding: 40px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem; /* Keep vertical padding */
+    padding-left: 5rem; /* Add left padding here */
+    padding-right: 5rem; /* Add right padding here */
+    background:
+      linear-gradient(rgba(0, 106, 255, 0.2), rgba(255, 102, 0, 0.2)),
+      url('https://i.postimg.cc/HYKWZ7Lk/abstract-background-concept-23-2148557836.jpg') no-repeat center center;
+    background-size: cover; /* Ensure background covers the entire area */
+  }
+  
+  .container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 700px;
+    border-top: 4px solid #FCA311;
+    padding: 2.5rem;
+  }
+  
+  /* Adjust the h2 padding within the container if needed */
+  .container h2 {
+      padding-left: 5rem; /* Apply padding to content inside the container */
+      padding-right: 5rem; /* Apply padding to content inside the container */
+  }
+  
+  /* You might need to apply padding to other direct children of .container as well,
+     or create a wrapper div inside .container for all its content. */
+  
+  
+  
+  /* Form Groups */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-input[type="date"],
-input[type="url"],
-select {
-    width: calc(100% - 22px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-.button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    font-weight: 600;
+    color: #14213D;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background-color: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 5px;
+    color: #374151;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #FCA311;
+    box-shadow: 0 0 0 3px rgba(252, 163, 17, 0.1);
+  }
+  
+  .form-group input::placeholder {
+    color: #6b7280;
+  }
+  
+  /* Checkbox Group */
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: rgba(252, 163, 17, 0.05);
+    border-radius: 5px;
+    border: 1px solid rgba(252, 163, 17, 0.2);
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #FCA311;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.button.primary {
-    background-color: #FCA311;
+  }
+  
+  .checkbox-group label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+    color: #14213D;
+  }
+  
+  /* Photo Preview */
+  .form-group p {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+  
+  .form-group p img {
+    border: 2px solid #FCA311;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group p img:hover {
+    transform: scale(1.05);
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
     color: white;
-}
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+  }
+  
+  .button:hover::before {
+    left: 100%;
+  }
+  
+  .button:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
 
-.button.secondary {
-    background-color: #6c757d;
-    color: white;
-    margin-left: 10px;
-}
+  .primary {
+    background: linear-gradient(135deg, #ff9f50 0%, #eb641c 100%);
 
-.button.primary:hover {
-    background-color: #9a640d;
-}
+  }
+  .primary:hover {
+    background: linear-gradient(135deg, rgb(232, 116, 20) 0%, #ff5b02 100%);
 
-.button.secondary:hover {
-    background-color: #545b62;
-}
+  }
+  .secondary{
+    margin-left: 6rem;
+    background: linear-gradient(135deg, #d70000 0%, #540000 100%);
+  }
+  .secondary:hover{
+    background: linear-gradient(135deg, #840000 0%, #630000 100%);
+  }
+
+  .photo-bas {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    border: 1px solid black;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 0 1rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .header-container h1 {
+      font-size: 1.5rem;
+    }
+    
+    .profile-container {
+      gap: 1rem;
+    }
+    
+    main {
+      padding: 1rem;
+    }
+    
+    .form-container {
+      padding: 2rem 1.5rem;
+    }
+    
+    .form-container h2 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-container {
+      padding: 1.5rem 1rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+      padding: 0.75rem;
+    }
+    
+    .button {
+      padding: 10px 15px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Animations subtiles */
+  .form-container {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Style pour les options de select */
+  .form-group select option {
+    background-color: #ffffff;
+    color: #374151;
+    padding: 0.5rem;
+  }
+  
+  /* Amélioration de l'accessibilité */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }

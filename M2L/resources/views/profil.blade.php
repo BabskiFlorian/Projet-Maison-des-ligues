@@ -152,7 +152,7 @@
                     <input type="url" id="photo" name="photo" value="{{ old('photo', $collaborateur->photo) }}" placeholder="Ex: https://example.com/ma-photo.jpg">
                     @if($collaborateur->photo)
                         {{-- Affiche la photo actuelle en utilisant l'URL directement --}}
-                        <img src="{{ $collaborateur->photo }}" alt="Photo de profil actuelle" style="max-width: 150px; margin-top: 10px;">
+                        <img src="{{ $collaborateur->photo }}" alt="Photo de profil actuelle" class="photo-bas">
                     @endif
                     @error('photo') <div class="text-danger">{{ $message }}</div> @enderror
                 </div>
