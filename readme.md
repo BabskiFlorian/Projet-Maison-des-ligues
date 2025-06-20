@@ -13,7 +13,21 @@
 
 Palette de couleurs : ...
 
+---
 
+## ⚙️ Génération de données de test (script Python)
+
+Un script Python est fourni dans ce projet afin de générer facilement des utilisateurs fictifs pour les besoins de test.  
+
+Le script utilise l’API publique [https://randomuser.me/](https://randomuser.me/) pour récupérer des profils d’utilisateurs aléatoires (données : civilité, prénom, nom, email, téléphone, photo).  
+
+Le fichier généré est un fichier **CSV** qui peut être ensuite importé via la fonctionnalité "Sélectionner un fichier CSV" disponible dans l’interface administrateur de l’application.  
+
+👉 Le mot de passe de chaque utilisateur généré est par défaut "motdepasse" (hashé avec bcrypt par Laravel lors de l’import).
+
+Le script est disponible ici  :  ![script](./Documentation/users.py)
+
+---
 
 ## 👥 Vues Collaborateur
 

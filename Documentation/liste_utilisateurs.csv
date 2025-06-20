@@ -1,0 +1,6 @@
+civilite,prenom,nom,email,telephone,photo,mot_de_passe
+Monsieur,Justin,Gautier,justin.gautier@example.com,02-03-31-08-80,https://randomuser.me/api/portraits/med/men/71.jpg,motdepasse
+Madame,Lina,Duval,lina.duval@example.com,03-79-31-41-68,https://randomuser.me/api/portraits/med/women/41.jpg,motdepasse
+Monsieur,Alban,Marie,alban.marie@example.com,01-53-42-29-12,https://randomuser.me/api/portraits/med/men/31.jpg,motdepasse
+Madame,Cléa,Noel,clea.noel@example.com,04-95-25-29-97,https://randomuser.me/api/portraits/med/women/82.jpg,motdepasse
+Monsieur,Gabriel,Dupont,gabriel.dupont@example.com,03-21-44-60-59,https://randomuser.me/api/portraits/med/men/51.jpg,motdepasse
