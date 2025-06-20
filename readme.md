@@ -25,7 +25,7 @@ Le fichier généré est un fichier **CSV** qui peut être ensuite importé via 
 
 👉 Le mot de passe de chaque utilisateur généré est par défaut "motdepasse" (hashé avec bcrypt par Laravel lors de l’import).
 
-Le script est disponible ici  :  ![script](./Documentation/users.py)
+Le script est disponible ici  :  ![documentation](./Documentation/users.py)
 
 ---
 
@@ -105,7 +105,7 @@ Le projet **Maison des ligues** est une application web dynamique, conçue pour 
 | id_collaborateur      | int(11), clé primaire, AUTO_INCREMENT    | Non  | Aucun             | Identifiant unique    |
 | nom                   | varchar(100)                            | Non  | Aucun             |                       |
 | prenom                | varchar(100)                            | Non  | Aucun             |                       |
-| email                 | varchar(100), indexé                    | Non  | Aucun             | Adresse e-mail unique |
+| email                 | varchar(100)                    | Non  | Aucun             | Adresse e-mail unique |
 | mot_de_passe          | varchar(255)                            | Non  | Aucun             | Hashé avec bcrypt     |
 | civilite              | enum('Monsieur', 'Madame', 'Autre')     | Oui  | NULL              |                       |
 | categorie             | enum('Développement', 'Marketing', 'Vente', 'Ressources humaines', etc.) | Oui | NULL              |                       |
