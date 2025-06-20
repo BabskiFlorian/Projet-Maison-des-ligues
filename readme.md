@@ -1,37 +1,187 @@
-#  Projet Maison des ligues
+# 📄 Projet : Maison des ligues
 
-Lien de la page : [Maison des ligues](https://babskiflorian.github.io/Projet-Maison-des-ligues/index.html)
+## 📌 Lien de la page
 
-## Charte graphique :
-![Palette de couleur](assets/readme/M2L-charte-graphique.png)
-# Projet "Maison des ligues"
 
-Le projet "Maison des ligues" est une application web dynamique, conçue pour faciliter la gestion et la communication au sein d'une organisation. Développée en HTML, CSS, PHP et JavaScript, cette plateforme offre une expérience utilisateur intuitive et sécurisée, avec des fonctionnalités distinctes pour les utilisateurs standards (collaborateurs) et les administrateurs.
+*(Projet en local via XAMPP)*
 
-## Les fonctionnalités clés sont les suivantes :
+---
 
-### A. Utilisateur standard (collaborateur) :
+## 🎨 Charte graphique
 
-*   **Connexion sécurisée :** L'accès à l'application est protégé par un système de login et mot de passe.
-*   **Page d'accueil personnalisée :** Une fois connecté, l'utilisateur est accueilli par une page qui affiche un collaborateur au hasard, avec la possibilité d'en découvrir d'autres.
-*   **Annuaire des collaborateurs :** Une page liste tous les collaborateurs de l'entreprise sous forme de fiches détaillées, avec des options de filtrage par nom, localisation et catégorie.
-*   **Modification du profil :** Chaque utilisateur peut modifier ses informations personnelles, y compris son login et mot de passe, via une page dédiée accessible depuis son image de profil.
-*   **Déconnexion sécurisée :** L'utilisateur peut se déconnecter à tout moment, ce qui bloque l'accès aux pages protégées.
+![Charte Graphique](./Documentation/M2L-charte-graphique.png)
 
-### B. Administrateur :
-
-*   **Privilèges étendus :** L'administrateur possède toutes les fonctionnalités de l'utilisateur standard, ainsi que des droits supplémentaires pour gérer les collaborateurs.
-*   **Gestion des collaborateurs :** L'administrateur peut ajouter, modifier et supprimer des collaborateurs.
-*   **Formulaire d'ajout :** Une page dédiée permet de créer facilement de nouveaux profils de collaborateurs.
-*   **Attribution du rôle d'administrateur :** L'administrateur peut également attribuer le rôle d'administrateur à d'autres utilisateurs lors de la modification de leurs informations.
+Palette de couleurs : ...
 
 
 
-## Langages utilisées
+## 👥 Vues Collaborateur
 
-*   **HTML :** Structure et contenu des pages web.
-*   **CSS :** Mise en forme et style des pages web.
-*   **PHP :** Logique métier et gestion des données côté serveur.
-*   **JavaScript :** Interactivité et dynamisme des pages web.
+### 1️⃣ Connexion utilisateur
 
-Le projet "Maison des ligues" représente une solution complète et efficace pour la gestion des collaborateurs, offrant une interface conviviale et des fonctionnalités adaptées aux besoins de l'entreprise.
+![Connexion utilisateur](./Documentation/Vues-collaborateur/Utilisateur-login.png)
+
+---
+
+### 2️⃣ Page d'accueil personnalisée
+
+![Page d'accueil](./Documentation/Vues-collaborateur/Utilisateur-accueil.png)
+
+---
+
+### 3️⃣ Liste des collaborateurs
+
+![Liste collaborateurs](./Documentation/Vues-collaborateur/Utilisateur-liste.png)
+
+---
+
+### 4️⃣ Modification de profil
+
+![Modification profil](./Documentation/Vues-collaborateur/Utilisateur-edit.png)
+
+---
+
+## 🛠️ Vues Administrateur
+
+
+### 1️⃣ Liste complète des collaborateurs
+
+![Annuaire complet](./Documentation/Vues-admin/Administrateur-liste.png)
+
+---
+
+## 1️⃣ Présentation générale
+
+Le projet **Maison des ligues** est une application web dynamique, conçue pour faciliter la gestion et la communication au sein d'une organisation.
+
+- **Objectif** : Créer une plateforme de gestion des collaborateurs et de communication interne pour une organisation ou une entreprise.
+- **Contexte** : Projet réalisé dans le cadre de ma formation BTS SIO option SLAM.
+- **Période de réalisation** : 05/01/2025 au 24/06/2025
+- **Environnement technique** :
+  - Système : Windows 11
+  - Hébergement : Local en développement (via `php artisan serve`)
+  - Serveur web : PHP built-in server (Laravel)
+  - Base de données : **MySQL** (via phpMyAdmin)
+  - IDE : **Visual Studio Code (VSCode)**
+  - Framework PHP : **Laravel**
+  - Outils utilisés : **GitHub** (versioning), VSCode (développement)
+
+---
+
+## 2️⃣ Expression des besoins
+
+- **Cibles utilisateurs** : Collaborateurs et administrateurs de l’organisation.
+- **Besoins identifiés** :
+  - Gestion des profils collaborateurs
+  - Gestion des droits d'accès
+  - Visualisation de l’annuaire des collaborateurs
+  - Sécurisation des données utilisateurs
+
+---
+
+
+
+## 3️⃣ Base de données
+
+
+### 🔸 Modèle de la table `collaborateurs`
+
+| Champ                 | Type                                   | Null | Valeur par défaut | Attributs              |
+|-----------------------|----------------------------------------|------|-------------------|-----------------------|
+| id_collaborateur      | int(11), clé primaire, AUTO_INCREMENT    | Non  | Aucun             | Identifiant unique    |
+| nom                   | varchar(100)                            | Non  | Aucun             |                       |
+| prenom                | varchar(100)                            | Non  | Aucun             |                       |
+| email                 | varchar(100), indexé                    | Non  | Aucun             | Adresse e-mail unique |
+| mot_de_passe          | varchar(255)                            | Non  | Aucun             | Hashé avec bcrypt     |
+| civilite              | enum('Monsieur', 'Madame', 'Autre')     | Oui  | NULL              |                       |
+| categorie             | enum('Développement', 'Marketing', 'Vente', 'Ressources humaines', etc.) | Oui | NULL              |                       |
+| telephone             | varchar(20)                             | Oui  | NULL              |                       |
+| date_de_naissance     | date                                    | Oui  | NULL              |                       |
+| ville                 | varchar(100)                            | Oui  | NULL              |                       |
+| pays                  | varchar(100)                            | Oui  | NULL              |                       |
+| photo                 | varchar(255)                            | Oui  | NULL              | URL ou chemin vers la photo |
+| est_admin             | tinyint(1) (0 = non admin, 1 = admin)   | Oui  | 0                 | Indique si administrateur |
+
+---
+
+## 4️⃣ Architecture technique
+
+- **Arborescence du projet** (Laravel) :
+  - `/app`
+  - `/routes`
+  - `/resources/views`
+  - `/public`
+  - `/database`
+  - `/config`
+
+- **Architecture** : MVC (Model View Controller) avec Laravel.
+
+
+---
+
+## 5️⃣ Fonctionnalités développées
+
+### A. Utilisateur standard (collaborateur)
+
+- Connexion sécurisée avec hashage des mots de passe (via bcrypt/Laravel) et gestion des sessions.
+- Page d'accueil personnalisée affichant un collaborateur aléatoire.
+- Annuaire des collaborateurs avec filtre par nom, localisation et catégorie.
+- Modification de son profil utilisateur (login, mot de passe, informations personnelles).
+- Déconnexion sécurisée.
+
+### B. Administrateur
+
+- Ajout, modification et suppression de collaborateurs.
+- Formulaire d’ajout de nouveaux collaborateurs.
+- Attribution du rôle d’administrateur à un autre utilisateur.
+
+---
+
+## 6️⃣ Sécurité
+
+- Gestion des mots de passe : hashage avec **bcrypt** via Laravel.
+- Protection contre XSS : Encodage automatique des sorties (Blade Templates).
+- Contrôle d’accès : Middleware Laravel pour sécuriser les routes selon le rôle de l’utilisateur.
+
+---
+
+
+
+## 7️⃣ Outils et gestion de projet
+
+- **Outils** :
+  - **GitHub** (gestion de versions)
+  - **Visual Studio Code**
+  - **phpMyAdmin** (gestion base de données)
+  - XAMPP (MySQL)
+
+- **Méthode de travail** :
+  - Organisation personnelle.
+
+---
+
+## 8️⃣ Bilan personnel
+
+- **Compétences acquises** :
+  - Utilisation de Laravel MVC
+  - Sécurisation des accès
+  - Gestion des droits utilisateurs / admins
+
+- **Difficultés rencontrées** :
+  - Configuration de Laravel
+  - Gestion des migrations de base de données
+
+- **Perspectives d’évolution** :
+  - Déploiement sur serveur distant
+  - Ajout d’une fonctionnalité de messagerie interne
+
+---
+
+## 9️⃣ Langages et outils utilisés
+
+- **HTML** : Structure des pages
+- **CSS** : Mise en forme
+- **PHP (Laravel)** : Logique métier et gestion des données
+- **JavaScript** : Dynamisme des pages (filtres, formulaires)
+- **MySQL** : Base de données
+- **Laravel** : Framework PHP MVC
